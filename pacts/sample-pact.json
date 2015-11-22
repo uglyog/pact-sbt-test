@@ -1,0 +1,56 @@
+{
+  "consumer": {
+    "name": "Foo Web Client"
+  },
+  "provider": {
+    "name": "Activity Service"
+  },
+  "interactions": [
+    {
+      "description": "a request for activities",
+      "provider_state": "many activities exist",
+      "request": {
+        "method": "get",
+        "path": "/activities",
+        "headers": {
+          "Accept": "application/json"
+        }
+      },
+      "response": {
+        "status": 200,
+        "headers": {
+          "Content-Type": "application/json"
+        },
+        "body": {
+          "activities": [
+            {
+              "name": "hx55sbvMPk1kF-9",
+              "description": "f_UXcxIXYhgqtxjiPumRiCo9C5JNDX"
+            },
+            {
+              "name": "hx55sbvMPk1kF-9",
+              "description": "f_UXcxIXYhgqtxjiPumRiCo9C5JNDX"
+            }
+          ]
+        },
+        "matchingRules": {
+          "$.body.activities": {
+            "min": 2
+          },
+          "$.body.activities[*].*": {
+            "match": "type"
+          },
+          "$.body.activities[*].name": {
+            "match": "type"
+          },
+          "$.body.activities[*].description": {
+            "match": "type"
+          }
+        }
+      }
+    }
+  ],
+  "metadata": {
+    "pactSpecificationVersion": "2.0.0"
+  }
+}
