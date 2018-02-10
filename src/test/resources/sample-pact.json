@@ -1,6 +1,6 @@
 {
   "consumer": {
-    "name": "Foo Web Client"
+    "name": "sampleconsumer"
   },
   "provider": {
     "name": "Activity Service"

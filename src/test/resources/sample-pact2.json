@@ -3,15 +3,14 @@
     "name": "Foo Web Client"
   },
   "provider": {
-    "name": "Activity Service"
+    "name": "sampleconsumer2"
   },
   "interactions": [
     {
-      "description": "a request for activities",
-      "provider_state": "many activities exist",
+      "description": "a post to query",
       "request": {
-        "method": "get",
-        "path": "/activities",
+        "method": "post",
+        "path": "/query",
         "headers": {
           "Accept": "application/json"
         }
@@ -23,31 +22,9 @@
         },
         "body": {
           "activities": [
-            {
-              "name": "V1Zfa-LCfYPEE-o",
-              "description": "COUxFaKRDRKaBnjg-LuOASNn_Xxy6H"
-            },
-            {
-              "name": "V1Zfa-LCfYPEE-o",
-              "description": "COUxFaKRDRKaBnjg-LuOASNn_Xxy6H"
-            }
+            { "name": "Bob", "description": "Description of bob" },
+            { "name": "Fred", "description": "Description of Fred" }
           ]
-        },
-        "matchingRules": {
-          "$.body.activities": {
-            "min": 2
-          },
-          "$.body.activities[*].*": {
-            "match": "type"
-          },
-          "$.body.activities[*].name": {
-            "match": "regex",
-            "regex": "(\\w|\\s)+"
-          },
-          "$.body.activities[*].description": {
-            "match": "regex",
-            "regex": "(\\w|\\s)+"
-          }
         }
       }
     }
